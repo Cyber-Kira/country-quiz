@@ -4,8 +4,10 @@ const axios = require('axios').default
 
 const url = 'https://restcountries.com/v3.1'
 
-interface CountryInterface {
-	name: string
+export interface CountryInterface {
+	name: {
+		common: string
+	}
 	capital: string
 	region: string
 	flags: {
