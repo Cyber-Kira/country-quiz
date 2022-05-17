@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer = () => {
 	return (
-		<div className='font-montserrat text-sm text-white-100 leading-4 font-normal md:fixed md:bottom-5 md:left-1/2 md:-translate-x-1/2'>
+		<div className='font-montserrat text-sm text-center text-white-100 leading-4 font-normal md:fixed md:bottom-5 md:left-1/2 md:-translate-x-1/2'>
 			created by
 			<a
 				href='https://devchallenges.io/portfolio/Cyber-Kira'
