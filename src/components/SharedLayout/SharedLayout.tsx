@@ -5,9 +5,10 @@ import { Footer } from '../Footer'
 
 export const SharedLayout = () => {
 	return (
-		<div>
-			<header>header</header>
-			<Outlet />
+		<div className='h-screen'>
+			<div className='md:flex md:justify-center md:items-center md:h-screen'>
+				<Outlet />
+			</div>
 			<Footer />
 			<Background />
 		</div>
