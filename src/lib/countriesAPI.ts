@@ -8,6 +8,7 @@ export interface CountryInterface {
 	name: {
 		common: string
 	}
+	ccn3: string
 	capital: string
 	region: string
 	flags: {

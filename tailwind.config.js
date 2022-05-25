@@ -22,6 +22,9 @@ module.exports = {
 			accent: {
 				yellow: '#F9A826',
 			},
+			slate: {
+				400: '#94a3b8',
+			},
 		},
 	},
 	plugins: [],
