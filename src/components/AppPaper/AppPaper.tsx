@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useAppDispatch } from '../../app/hooks'
+import { getCountries } from '../../features/countries/countriesSlice'
 import { Navigation } from '../Buttons/Navigation'
 import img from './assets/undraw_adventure_4hum 1.svg'
 
 interface Props {
 	children?: JSX.Element
-	question?: string
 }
 
-export const AppPaper = ({ children, question }: Props) => {
+export const AppPaper = ({ children }: Props) => {
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		dispatch(getCountries())
+	}, [])
+
 	return (
 		<div className='w-full px-6 py-4 md:p-0 max-w-[464px]'>
 			<div className='flex justify-between'>
@@ -15,15 +22,12 @@ export const AppPaper = ({ children, question }: Props) => {
 					Country quiz
 				</h1>
 			</div>
-			<div className='relative bg-white-50 pt-6 md:pt-16 px-0 md:px-8 pb-16 md:rounded-3xl'>
+			<div className='relative bg-white-50 pt-6 md:pt-16 px-0 md:px-8 pb-16 md:rounded-3xl min-h-[492px]'>
 				<img
 					className='absolute right-0 -top-20 w-28 md:w-40'
 					src={img}
 					alt='The guy standing by the globe'
 				/>
-				<p className='font-poppins font-bold text-2xl leading-9 mb-8 text-primary-100'>
-					{question}
-				</p>
 				{children}
 				<div className='w-full flex justify-end'>
 					<Navigation />
