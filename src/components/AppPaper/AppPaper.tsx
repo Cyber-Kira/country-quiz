@@ -15,11 +15,15 @@ export const AppPaper = ({ children }: Props) => {
 					Country quiz
 				</h1>
 			</div>
-			<div className='relative bg-white-50 pt-6 md:pt-16 px-0 md:px-8 pb-16 md:rounded-3xl min-h-[492px]'>
+			<div className='relative bg-white-50 pt-9 md:pt-16 px-0 md:px-8 pb-16 md:rounded-3xl min-h-[492px]'>
 				<Link
 					to='/'
-					className='block absolute -top-4 md:top-5 -left-5 rounded-full w-10 h-10 bg-accent-yellow'
-				/>
+					className='flex absolute -top-3 md:top-5 -left-5 rounded-full w-9 h-9 bg-white-50 md:shadow-md hover:md:shadow-lg transition-shadow'
+				>
+					<span className='material-symbols-outlined m-auto'>
+						navigate_before
+					</span>
+				</Link>
 				<img
 					className='absolute right-0 -top-20 w-28 md:w-40'
 					src={img}

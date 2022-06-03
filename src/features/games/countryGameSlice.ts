@@ -14,13 +14,17 @@ export const countryGameSlice = createSlice({
 	name: 'countryGame',
 	initialState,
 	reducers: {
-		setScore: (state, { payload }) => {
-			state.score = payload
+		increaseScore: state => {
+			state.score += 1
 		},
-		setHighestScore: (state, { payload }) => {
-			state.highestScore = payload
+		resetScore: state => {
+			state.score = 0
+		},
+		setHighestScore: state => {
+			state.highestScore = state.score
 		},
 	},
 })
 
-export const { setScore, setHighestScore } = countryGameSlice.actions
+export const { increaseScore, setHighestScore, resetScore } =
+	countryGameSlice.actions

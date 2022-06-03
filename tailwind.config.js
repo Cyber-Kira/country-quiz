@@ -21,6 +21,8 @@ module.exports = {
 			},
 			accent: {
 				yellow: '#F9A826',
+				green: '#60BF88',
+				red: '#EA8282',
 			},
 			slate: {
 				400: '#94a3b8',

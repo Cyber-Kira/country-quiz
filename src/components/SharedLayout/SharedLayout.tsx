@@ -5,7 +5,7 @@ import { Footer } from '../Footer'
 
 export const SharedLayout = () => {
 	return (
-		<div className='h-screen'>
+		<div className='flex flex-col h-screen'>
 			<div className='md:flex md:justify-center md:items-center md:h-screen'>
 				<Outlet />
 			</div>
