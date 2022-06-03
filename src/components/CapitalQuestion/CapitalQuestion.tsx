@@ -1,11 +1,14 @@
 import React from 'react'
 import { AppPaper } from '../AppPaper'
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary'
 import { QuestionList } from '../QuestionList'
 
 export const CapitalQuestion = () => {
 	return (
 		<AppPaper>
-			<QuestionList />
+			<ErrorBoundary>
+				<QuestionList />
+			</ErrorBoundary>
 		</AppPaper>
 	)
 }
