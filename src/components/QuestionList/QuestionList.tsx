@@ -14,6 +14,7 @@ export const QuestionList = () => {
 
 	useEffect(() => {
 		if (data && data.length > 0) {
+			setRandomCountries([])
 			setRandomCountries(oldState => [...oldState, currentCountry])
 			for (let index = 0; index < 3; index += 1) {
 				const randomCountry = data[Math.floor(Math.random() * data.length)]

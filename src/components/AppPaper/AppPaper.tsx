@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { useAppDispatch } from '../../app/hooks'
-import { getCountries } from '../../features/countries/countriesSlice'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { Navigation } from '../Buttons/Navigation'
 import img from './assets/undraw_adventure_4hum 1.svg'
 
@@ -9,12 +8,6 @@ interface Props {
 }
 
 export const AppPaper = ({ children }: Props) => {
-	const dispatch = useAppDispatch()
-
-	useEffect(() => {
-		dispatch(getCountries())
-	}, [])
-
 	return (
 		<div className='w-full px-6 py-4 md:p-0 max-w-[464px]'>
 			<div className='flex justify-between'>
@@ -23,13 +16,17 @@ export const AppPaper = ({ children }: Props) => {
 				</h1>
 			</div>
 			<div className='relative bg-white-50 pt-6 md:pt-16 px-0 md:px-8 pb-16 md:rounded-3xl min-h-[492px]'>
+				<Link
+					to='/'
+					className='block absolute -top-4 md:top-5 -left-5 rounded-full w-10 h-10 bg-accent-yellow'
+				/>
 				<img
 					className='absolute right-0 -top-20 w-28 md:w-40'
 					src={img}
 					alt='The guy standing by the globe'
 				/>
 				{children}
-				<div className='w-full flex justify-end'>
+				<div className='w-full hidden justify-endh'>
 					<Navigation />
 				</div>
 			</div>

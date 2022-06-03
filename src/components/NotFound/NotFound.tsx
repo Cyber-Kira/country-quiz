@@ -21,7 +21,7 @@ export const NotFound = () => {
 					</p>
 					<Link
 						to='/'
-						className='flex justify-center items-center bg-gray-700 text-sm font-mono text-white w-52 uppercase font-bold h-16 mb-16 mt-12 transition-all hover:-translate-y-1 hover:cursor-pointer focus:translate-y-1'
+						className='flex justify-center items-center bg-gray-700 text-sm font-mono text-white w-52 bg-primary-100 text-white-50 rounded-sm uppercase font-bold h-16 mb-16 mt-12 transition-all hover:-translate-y-1 hover:cursor-pointer focus:translate-y-1'
 					>
 						Back to homepage
 					</Link>
