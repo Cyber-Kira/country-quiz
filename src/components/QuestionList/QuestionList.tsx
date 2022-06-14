@@ -7,6 +7,7 @@ import { QuestionListSkeleton } from './components/QuestionListSkeleton'
 
 export const QuestionList = () => {
 	const { data, isLoading } = useAppSelector(store => store.countries)
+	const { isPlaying } = useAppSelector(store => store.gameFlow)
 
 	const [randomCountries, setRandomCountries] = useState<CountryInterface[]>([])
 	const [currentCountry, setCurrentCountry] = useState<CountryInterface>({
@@ -23,7 +24,7 @@ export const QuestionList = () => {
 	})
 
 	useEffect(() => {
-		if (data && data.length > 0) {
+		if (data && data.length > 0 && isPlaying && !isLoading) {
 			const randomCurrentCountry = data[Math.floor(Math.random() * data.length)]
 			const countriesArray = [randomCurrentCountry]
 			setCurrentCountry(randomCurrentCountry)
@@ -37,8 +38,9 @@ export const QuestionList = () => {
 					index += -1
 				}
 			}
+			setRandomCountries(shuffleArray<CountryInterface>(countriesArray))
 		}
-	}, [data])
+	}, [data, isPlaying])
 
 	if (isLoading) {
 		return <QuestionListSkeleton />
@@ -50,23 +52,23 @@ export const QuestionList = () => {
 				{currentCountry.capital} is the capital of
 			</p>
 			<ol className='flex flex-col gap-6'>
-				{shuffleArray<CountryInterface>(randomCountries).map(
-					(country, index) => {
-						return (
-							<li
-								key={
-									country.ccn3.length > 0 ? country.ccn3 : country.name.common
-								}
-							>
-								{country.capital === currentCountry.capital ? (
-									<Answer text={country.name.common} index={index} isRight />
-								) : (
-									<Answer text={country.name.common} index={index} />
-								)}
-							</li>
-						)
-					}
-				)}
+				{randomCountries.map((country, index) => {
+					return (
+						<li
+							key={
+								country.ccn3 && country.ccn3.length > 0
+									? country.ccn3
+									: country.name.common
+							}
+						>
+							{country.capital === currentCountry.capital ? (
+								<Answer text={country.name.common} index={index} isRight />
+							) : (
+								<Answer text={country.name.common} index={index} />
+							)}
+						</li>
+					)
+				})}
 			</ol>
 		</>
 	)

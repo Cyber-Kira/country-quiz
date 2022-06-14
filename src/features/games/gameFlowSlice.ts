@@ -7,7 +7,7 @@ interface InitialStateInterface {
 }
 
 const initialState: InitialStateInterface = {
-	isPlaying: false,
+	isPlaying: true,
 	isStopped: false,
 	isFinished: false,
 }

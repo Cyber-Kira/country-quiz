@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { increaseScore } from '../../../features/games/countryGameSlice'
-import { setIsStopped } from '../../../features/games/gameFlowSlice'
+import {
+	setIsFinished,
+	setIsPlaying,
+	setIsStopped,
+} from '../../../features/games/gameFlowSlice'
 
 interface Props {
 	text: string
@@ -19,9 +23,13 @@ export const Answer = ({ text, index, isRight }: Props) => {
 		if (isRight && !isStopped) {
 			dispatch(increaseScore())
 		}
+		if (!isRight) {
+			dispatch(setIsFinished(true))
+		}
 		if (!isStopped) {
 			setIsClicked(true)
 			dispatch(setIsStopped(true))
+			dispatch(setIsPlaying(false))
 		}
 	}
 
