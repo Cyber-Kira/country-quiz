@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../app/hooks'
 import { Navigation } from '../Buttons/Navigation'
-import { NavigateBefore } from './components/navigateBefore'
+import { NavigateBefore } from './components'
 import img from './assets/undraw_adventure_4hum 1.svg'
 
 interface Props {
