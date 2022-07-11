@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { CapitalQuestion } from '../CapitalQuestion'
+import { FlagQuestion } from '../FlagQuestion'
 import { GameSelector } from '../GameSelector'
 import { NotFound } from '../NotFound/NotFound'
 import { Results } from '../Results'
@@ -13,6 +14,7 @@ export const App = () => {
 				<Route path='/' element={<SharedLayout />}>
 					<Route path='/' element={<GameSelector />} />
 					<Route path='/capital' element={<CapitalQuestion />} />
+					<Route path='/flag' element={<FlagQuestion />} />
 					<Route path='/results' element={<Results />} />
 				</Route>
 				<Route path='*' element={<NotFound />} />
