@@ -6,6 +6,21 @@ module.exports = {
 				montserrat: ['Montserrat', 'sans-serif'],
 				poppins: ['Poppins', 'sans-serif'],
 			},
+			animation: {
+				'grow-in': 'grow .2s ease-in-out forwards',
+			},
+			keyframes: {
+				grow: {
+					'0%': {
+						transform: 'scale(0.9)',
+						opacity: '0.2',
+					},
+					'100%': {
+						transform: 'scale(1)',
+						opacity: '1',
+					},
+				},
+			},
 		},
 		colors: {
 			transparrent: 'transparent',
