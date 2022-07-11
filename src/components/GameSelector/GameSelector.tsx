@@ -7,8 +7,8 @@ export const GameSelector = () => {
 		<AppPaper>
 			<div>
 				<div className='grid grid-cols-2 gap-4'>
-					<Quiz title='Guess a capital' url='/capital' info='123' />
-					<Quiz title='Guess a capital' url='/capital' info='123' />
+					<Quiz title='Guess a capital' url='/capital' info='Guess a capital' />
+					<Quiz title='Guess a flag' url='/flag' info='Guess a flag' />
 				</div>
 			</div>
 		</AppPaper>
