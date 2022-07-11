@@ -13,7 +13,7 @@ export const Results = () => {
 	const handleClick = () => {
 		dispatch(setIsFinished(false))
 		dispatch(resetScore())
-		navigate('/capital')
+		navigate('/')
 	}
 
 	return (
