@@ -5,7 +5,7 @@ import { CountryInterface } from '../../lib/countriesAPI'
 import { Answer } from '../Buttons/Answer'
 import { QuestionListSkeleton } from './components/QuestionListSkeleton'
 
-export const QuestionList = () => {
+export const QuestionList = ({ flags }: { flags?: boolean }) => {
 	const { data, isLoading } = useAppSelector(store => store.countries)
 	const { isPlaying } = useAppSelector(store => store.gameFlow)
 
@@ -46,11 +46,28 @@ export const QuestionList = () => {
 		return <QuestionListSkeleton />
 	}
 
+	const questionText = !flags ? (
+		<p className='font-poppins font-bold text-2xl leading-9 mb-8 text-primary-100 z-10'>
+			{currentCountry.capital} is the capital of
+		</p>
+	) : (
+		<p className='font-poppins font-bold text-2xl leading-9 mb-8 text-primary-100 z-10'>
+			Which country does this flag belong to?
+		</p>
+	)
+
+	const countryFlag = (
+		<img
+			className='max-w-[84px] drop-shadow-md mb-7 mt-2'
+			src={currentCountry.flags.svg}
+			alt={`Flag of ${currentCountry.capital}`}
+		/>
+	)
+
 	return (
 		<>
-			<p className='font-poppins font-bold text-2xl leading-9 mb-8 text-primary-100 z-10'>
-				{currentCountry.capital} is the capital of
-			</p>
+			{flags ? countryFlag : null}
+			{questionText}
 			<ol className='flex flex-col gap-6'>
 				{randomCountries.map((country, index) => {
 					return (
